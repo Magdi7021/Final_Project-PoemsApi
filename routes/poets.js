@@ -9,7 +9,7 @@ router.get(
   '/',
   async (req, res) => {
     try {
-      const poets = await Poet.find();
+      const poets = await Poet.find().populate("poems");
       res.send(poets);
     } catch (error) {
       res.status(500).send(error.message);
